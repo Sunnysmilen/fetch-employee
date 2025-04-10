@@ -28,12 +28,6 @@ function App() {
     }
   };
 
-  // essayer de récupérer les données transmis par l'API
-  //  pour le transformer en tableau de données visibles sur APP
-  // utiliser map pour y accéeder
-
-  // employee.map();
-
   return (
     <>
       <div>
