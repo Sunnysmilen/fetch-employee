@@ -1,0 +1,49 @@
+import { useState } from "react";
+import "./App.css";
+import { EmployeeCard } from "./components/EmployeeCard";
+
+function App() {
+  const sampleEmployee = {
+    name: {
+      first: "Charlie",
+      last: "Thompson",
+    },
+    email: "charlie.thompson@example.com",
+    picture: {
+      medium: "https://randomuser.me/api/portraits/med/men/40.jpg",
+    },
+  };
+  const [employee, setEmployee] = useState(sampleEmployee);
+
+  const getEmployee = () => {
+    try {
+      fetch("https://randomuser.me/api?inc=name,email,picture")
+        .then((Response) => Response.json())
+        .then((data) => {
+          console.log(data);
+          setEmployee(data.result[0]);
+        });
+    } catch (error) {
+      console.log(Error);
+    }
+  };
+
+  // essayer de récupérer les données transmis par l'API
+  //  pour le transformer en tableau de données visibles sur APP
+  // utiliser map pour y accéeder
+
+  // employee.map();
+
+  return (
+    <>
+      <div>
+        <EmployeeCard employee={employee} />
+        <button type="button" onClick={getEmployee}>
+          Get employee
+        </button>
+      </div>
+    </>
+  );
+}
+
+export default App;
