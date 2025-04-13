@@ -17,14 +17,14 @@ function App() {
 
   const getEmployee = () => {
     try {
-      fetch("https://randomuser.me/api?inc=name,email,picture")
+      fetch("http://localhost:8080/api/employees")
         .then((Response) => Response.json())
         .then((data) => {
           console.log(data);
-          setEmployee(data.result[0]);
+          setEmployee(data.result);
         });
     } catch (error) {
-      console.log(Error);
+      console.log(error);
     }
   };
 
