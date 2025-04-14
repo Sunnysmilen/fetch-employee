@@ -17,7 +17,7 @@ function App() {
 
   const getEmployee = () => {
     try {
-      fetch("http://localhost:8080/api/employees")
+      fetch("http://localhost:3310/api/employees")
         .then((Response) => Response.json())
         .then((data) => {
           console.log(data);
